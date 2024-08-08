@@ -79,27 +79,30 @@ const Cards = () => {
   };
 
   return (
-    <div className='w-full py-[10rem] px-4 bg-gray-100'>
-      <div className='max-w-[1240px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8'>
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className='w-full shadow-xl flex flex-col p-4 my-4 rounded-lg bg-white hover:scale-105 duration-300 cursor-pointer'
-            onClick={() => handleCardClick(service)}
-          >
-            <div className='flex items-center justify-center'>
-              <FaClock className='text-gray-500 mr-2' />
-              <span className='text-gray-500'>{service.duration}</span>
+    <div id="layanan" className='w-full py-[10rem] px-4 bg-gray-100'>
+      <div className='max-w-[1240px] mx-auto'>
+        <h2 className='text-4xl font-bold text-left mb-8'>Daftar Layanan</h2>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className='w-full shadow-xl flex flex-col p-4 my-4 rounded-lg bg-white hover:scale-105 duration-300 cursor-pointer'
+              onClick={() => handleCardClick(service)}
+            >
+              <h2 className='text-xl font-bold text-gray-800 text-center py-4'>{service.title}</h2>
+              <div className='flex items-center justify-center'>
+                <FaClock className='text-gray-500 mr-2' />
+                <span className='text-gray-500'>{service.duration}</span>
+              </div>
+              <p className='text-gray-600 text-center py-4'>{service.description}</p>
+              <button className='bg-[#500404] text-white w-full rounded-md font-medium py-2'>More Information</button>
             </div>
-            <h2 className='text-xl font-bold text-gray-800 text-center py-4'>{service.title}</h2>
-            <p className='text-gray-600 text-center py-4'>{service.description}</p>
-            <button className='bg-[#500404] text-white w-full rounded-md font-medium py-2'>More Information</button>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       {selectedService && (
-        <div className='fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50'>
-          <div className='bg-white p-8 rounded-lg max-w-lg mx-auto'>
+        <div className='fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50' onClick={handleClose}>
+          <div className='bg-white p-8 rounded-lg max-w-lg mx-auto relative' onClick={(e) => e.stopPropagation()}>
             <button
               onClick={handleClose}
               className='absolute top-2 right-2 text-gray-500 hover:text-gray-700'
