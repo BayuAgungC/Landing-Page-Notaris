@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #500404
+  ;
+}
+
+.section {
+  min-height: 100vh; /* Full screen height */
+  display: flex;
+  align-items: center; /* Center content */
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Scroll Snap for Modal (Optional) */
+.modal-content {
+  scroll-snap-type: y mandatory;
+}
